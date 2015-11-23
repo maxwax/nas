@@ -129,29 +129,24 @@ do
 
       "mount")
         echo "From $NAS_SERVER using $NAS_PROTOCOL mount $NAS_MOUNT_REMOTE at $NAS_MOUNT_LOCAL"
-
         mount_nfs
       ;;
 
       "unmount" | "umount")
         unmount_fs
-
       ;;
 
       "status")
         check_mount report
-        
       ;;
 
       *)
-
         echo
         echo "nas <command>"
         echo
         echo "Commands: mount, unmount, status"
         echo
         exit 0
-
       ;;
 
     esac
