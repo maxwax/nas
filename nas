@@ -10,7 +10,7 @@
 ACTION=${1:-"null"}
 
 # Configuration file with our defined NAS mount points and protocols
-NAS_CONFIG_FILE=~/.nasconfig
+NAS_CONFIG_FILE=/etc/nas.conf
 
 # Define these variable here so they're global when used in functions
 HOST_OK=false
