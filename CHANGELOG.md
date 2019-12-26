@@ -1,5 +1,11 @@
 # CHANGELOG for 'nas' script
 
+## 1.1.1 Better output
+
+* Ignore lines that start with # for comments but ALSO ignore lines that are empty.
+
+* Use printf on the output to get pretty column based output that is easier to read
+
 ## 1.1.0 Config file location
 
 * Moving config file location to /etc/nas.conf for system wide use. This lets root use it as well as users calling it via sudo.
