@@ -1,5 +1,9 @@
 # CHANGELOG for 'nas' script
 
+## 1.2.0
+
+* Add check for root/sudo user. Avoids errors when I call this without sudo.
+
 ## 1.1.1 Better output
 
 * Ignore lines that start with # for comments but ALSO ignore lines that are empty.

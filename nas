@@ -6,7 +6,8 @@
 # Currently limited to mounting and unmounting nfs shares, expandable to others
 #
 
-VERSION="1.1.1"
+VERSION="1.2.0"
+VERSION_DATE="2020-01-20"
 
 # Action parameter from user is required
 ACTION=${1:-"null"}
@@ -20,6 +21,12 @@ MOUNTED_FS=false
 
 NFS_V3_OPTIONS="-t nfs -o nfsvers=3"
 NFS_V4_OPTIONS="-t nfs -o nfsvers=4"
+
+if [[ $EUID != 0 ]]
+then
+  echo "Error: Please run this script as root or with sudo".
+  exit 1
+fi
 
 # Before we try mounting and wait for a long time, ping the nas server
 # to ensure it's online and available
