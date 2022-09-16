@@ -1,0 +1,36 @@
+#
+# Example Config file for 'nas' script that mounts known NFS server shares
+#
+# For client 'mylaptop.house' workstation in .house network.
+#
+
+# Syntax:
+# 1 - Unique ID
+# 2 - Group ID; 'default' group ID is mounted by default
+# 3 - NAS hostname, FQDN format.
+# 4 - Protocol, usually 'nfs3' or 'nfs4'
+# 5 - Source mount point - Ex: Share on an NFS Server
+# 6 - Target mount point locally - Ex: /mnt/mydata. Directory must exist
+
+#
+# HomeNAS NFS Server
+#
+
+# Primary data store
+id_my_home_nas default homenas.house nfs4 /srv/bigdata /net/bigdata
+
+# Optional USB drive on NAS homenas
+id_home_nas_offsite manual homenas.house nfs4 /mnt/offsite8tb /net/offsite8tb
+
+#
+# Archives NFS server
+#
+
+# Primary data store
+id_archives archives bigarchives.house nfs4 /srv/longtermdata /net/longtermdata
+
+#
+# Plex
+#
+
+id_plex default plex.house nfs4 /srv/av /net/av
