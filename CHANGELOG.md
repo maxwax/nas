@@ -1,5 +1,9 @@
 # CHANGELOG for 'nas' script
 
+# 1.4.1
+
+* Replacing instances of 'fgrep' with 'grep -F' to avoid deprecation warnings.
+
 # 1.4.0
 
 * check_mount will check for the name of a mount plus a space.  It wants to find exactly one mount point for a configured mount, but without the space, a check for /net/av finds /net/av and /net/avnew and anything else containing /net/av.  adding a space only finds /net/av.

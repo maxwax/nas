@@ -6,8 +6,8 @@
 # Currently limited to mounting and unmounting nfs shares, expandable to others
 #
 
-VERSION="1.4.0"
-VERSION_DATE="2023-0707"
+VERSION="1.4.1"
+VERSION_DATE="2023-0905"
 
 # Configuration file with our defined NAS mount points and protocols
 NAS_CONFIG_FILE=/etc/nas.conf
@@ -49,7 +49,7 @@ function check_mount {
   # Default to false and return this back to the calling code
   MOUNTED_FS=false
 
-  MOUNT_COUNT=$(mount | fgrep "$NAS_MOUNT_LOCAL " | cut -d " " -f 1 | wc -l)
+  MOUNT_COUNT=$(mount | grep -F "$NAS_MOUNT_LOCAL " | cut -d " " -f 1 | wc -l)
   if [[ $MOUNT_COUNT == 1 ]]
   then
     MOUNTED_FS=true
@@ -57,7 +57,7 @@ function check_mount {
     # Optional parameter tells us to report this mount to the user, for 'status'
     if [[ $REPORT_MOUNT == "report" ]]
     then
-     mount | fgrep $NAS_MOUNT_LOCAL
+     mount | grep -F $NAS_MOUNT_LOCAL
     fi
   else
     if [[ $REPORT_MOUNT == "report" ]]
